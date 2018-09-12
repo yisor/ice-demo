@@ -1,5 +1,5 @@
 import { call, put, take, fork } from 'redux-saga/effects';
-import request from "@utils/request";
+import request from "@/utils/request";
 import { user } from '../actions';
 
 function* login(act) {
