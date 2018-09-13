@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // axios 配置
 axios.defaults.timeout = 20000;  // 设置超时时间
-// axios.defaults.baseURL = 'http://work.flybycloud.com:6674';
+// axios.defaults.baseURL = '';
 axios.interceptors.request.use(
   config => {
     config.headers = {

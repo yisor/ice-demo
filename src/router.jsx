@@ -115,5 +115,6 @@ function renderRouterConfigV4(container, router, contextPath) {
 }
 
 const routerWithReactRouter4 = recursiveRouterConfigV4(routerConfig);
+
 const routeChildren = renderRouterConfigV4(null, routerWithReactRouter4, '/');
-export default () => { return (<div>{routeChildren}</div>) };
+export default () => { return routeChildren };

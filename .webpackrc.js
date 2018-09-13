@@ -5,8 +5,5 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-  },
-  externals: {
-    bizcharts: 'BizCharts',
-  },
+  }
 };

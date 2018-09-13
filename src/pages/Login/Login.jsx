@@ -1,25 +1,33 @@
 
 
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 import UserLogin from './components/UserLogin';
+import { userLogin } from '../../redux/actions/user';
 
 import './Login.scss';
 
-export default class Login extends Component {
+class Login extends Component {
   static displayName = 'Login';
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
-    const { router } = this.props;
     return (
       <div className="login-page">
-        <UserLogin {...router} />
+        <UserLogin handleLogin={this.props.handleLogin} />
       </div>
     );
   }
 }
+
+// const mapDispatchToProps = {
+//   userLogin,
+// };
+
+const mapDispatchToProps = (dispatch) => ({
+  handleLogin: (act) => {
+    dispatch(userLogin(act));
+  },
+});
+
+export default connect(() => ({}), mapDispatchToProps)(Login);

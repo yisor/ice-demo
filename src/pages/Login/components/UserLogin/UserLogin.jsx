@@ -1,6 +1,5 @@
 /* eslint react/no-string-refs:0 */
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { Input, Button, Checkbox, Grid } from '@icedesign/base';
 import {
   FormBinderWrapper as IceFormBinderWrapper,
@@ -16,7 +15,6 @@ const { Row, Col } = Grid;
 const backgroundImage =
   require('./images/TB1zsNhXTtYBeNjy1XdXXXXyVXa-2252-1500.png');
 
-@withRouter
 export default class UserLogin extends Component {
   static displayName = 'UserLogin';
 
@@ -48,10 +46,8 @@ export default class UserLogin extends Component {
         console.log('errors', errors);
         return;
       }
-      console.log('values:', values);
-      console.log(this.props);
-      this.props.history.push('/');
-      // HashRouter.push('/');
+      this.props.handleLogin(values);
+      // this.props.history.push('/');
     });
   };
 
@@ -66,7 +62,7 @@ export default class UserLogin extends Component {
         />
         <div style={styles.contentWrapper} className="content-wrapper">
           <h2 style={styles.slogan} className="slogan">
-            欢迎使用 <br /> ICE 内容管理系统
+            欢迎使用 <br /> 蒜粒内容管理系统
           </h2>
           <div style={styles.formContainer}>
             <h4 style={styles.formTitle}>登录</h4>
@@ -84,7 +80,7 @@ export default class UserLogin extends Component {
                       style={styles.inputIcon}
                     />
                     <IceFormBinder name="account" required message="必填">
-                      <Input maxLength={20} placeholder="会员名/邮箱/手机号" />
+                      <Input maxLength={20} placeholder="用户名/邮箱/手机号" />
                     </IceFormBinder>
                   </Col>
                   <Col>

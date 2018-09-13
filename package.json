@@ -15,6 +15,7 @@
     "axios": "^0.17.1",
     "bizcharts": "3.1.0",
     "classnames": "^2.2.5",
+    "connected-react-router": "^4.4.1",
     "enquire-js": "^0.1.2",
     "foundation-symbol": "^0.1.0",
     "history": "^4.7.2",

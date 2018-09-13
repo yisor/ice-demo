@@ -7,24 +7,33 @@ module.exports = {
   },
 
   'POST /api/login': (req, res) => {
-    const { password, username } = req.body;
-    if (username === 'admin' && password === 'admin') {
+    const { password, account } = req.body;
+    if (account === 'admin' && password === 'admin') {
       res.send({
-        status: 200,
-        statusText: 'ok',
-        currentAuthority: 'admin',
+        code: "0000",
+        data:{
+          currentAuthority: 'admin',
+        },
+        message: 'ok',
+        successful: true
       });
-    } else if (username === 'user' && password === 'user') {
+    } else if (account === 'user' && password === 'user') {
       res.send({
-        status: 200,
-        statusText: 'ok',
-        currentAuthority: 'user',
+        code: "0000",
+        data:{
+          currentAuthority: 'user',
+        },
+        message: 'ok',
+        successful: true
       });
     } else {
       res.send({
-        status: 401,
-        statusText: 'unauthorized',
-        currentAuthority: 'guest',
+        code: "401",
+        data:{
+          currentAuthority: 'guest',
+        },
+        message: 'unauthorized',
+        successful: true
       });
     }
   },
