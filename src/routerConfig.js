@@ -121,7 +121,7 @@ const routerConfig = [
     ],
   },
   {
-    path: '*',
+    path: '/hello',
     layout: HeaderAsideFooterResponsiveLayout,
     component: NotFound,
   },

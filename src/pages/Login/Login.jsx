@@ -9,12 +9,12 @@ import { userLogin } from '../../redux/actions/user';
 import './Login.scss';
 
 class Login extends Component {
-  static displayName = 'Login';
 
   render() {
+    const { handleLogin } = this.props;
     return (
       <div className="login-page">
-        <UserLogin handleLogin={this.props.handleLogin} />
+        <div onClick={handleLogin}>测试</div>
       </div>
     );
   }
@@ -25,8 +25,8 @@ class Login extends Component {
 // };
 
 const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (act) => {
-    dispatch(userLogin(act));
+  handleLogin: () => {
+    dispatch(push('/hello'));
   },
 });
 

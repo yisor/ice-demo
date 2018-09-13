@@ -1,7 +1,6 @@
 import { call, put, take, fork } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import request from "@/utils/request";
-import history from "../../utils/history";
 import { user } from '../actions';
 
 function* login(act) {
