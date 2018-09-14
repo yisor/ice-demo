@@ -1,25 +1,36 @@
 import * as Types from '../actions/user'
 
 const initialState = {
-  userInfo: null,
+  authInfo: null,
+  userList: [],
 }
 
-const userReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
-    case Types.LOGIN_SUCCESS:
-      return {
-        ...state,
-        userInfo: payload,
-      };
     case Types.LOGIN:
       return {
         ...state,
-        userInfo: null
+        authInfo: null
+      };
+    case Types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        authInfo: payload,
+      };
+    case Types.FETCH_USERLIST:
+      return {
+        ...state,
+        userList: [],
+      };
+    case Types.FETCH_USERLIST_SUCCESS:
+      return {
+        ...state,
+        userList: payload,
       };
     default:
       return state;
   }
 }
 
-export default userReducer;
+export default reducer;

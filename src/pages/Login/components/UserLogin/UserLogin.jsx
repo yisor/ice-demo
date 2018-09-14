@@ -47,7 +47,6 @@ export default class UserLogin extends Component {
         return;
       }
       this.props.handleLogin(values);
-      // this.props.history.push('/');
     });
   };
 

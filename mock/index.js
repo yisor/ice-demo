@@ -1,3 +1,6 @@
+const users = require('./user-list.json');
+const cates = require('./category-list.json');
+
 module.exports = {
   'GET /api/profile': {
     name: '淘小宝',
@@ -11,7 +14,7 @@ module.exports = {
     if (account === 'admin' && password === 'admin') {
       res.send({
         code: "0000",
-        data:{
+        data: {
           currentAuthority: 'admin',
         },
         message: 'ok',
@@ -20,7 +23,7 @@ module.exports = {
     } else if (account === 'user' && password === 'user') {
       res.send({
         code: "0000",
-        data:{
+        data: {
           currentAuthority: 'user',
         },
         message: 'ok',
@@ -29,7 +32,7 @@ module.exports = {
     } else {
       res.send({
         code: "401",
-        data:{
+        data: {
           currentAuthority: 'guest',
         },
         message: 'unauthorized',
@@ -53,4 +56,6 @@ module.exports = {
       currentAuthority: 'guest',
     });
   },
+  'GET /api/user/list': users,
+  'GET /api/category/list': cates,
 };

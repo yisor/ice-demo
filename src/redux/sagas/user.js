@@ -14,6 +14,16 @@ function* login(act) {
   }
 }
 
+function* fetchUsers(payload) {
+  try {
+    const response = yield call(request, '/api/user/list');
+    console.log('查询用户：', response);
+    yield put(user.fetchUserListSuccess(response.data));
+  } catch (err) {
+    console.log('查询失败', err.errorMsg)
+  }
+}
+
 function* watchLogin() {
   while (true) {
     const actions = yield take(user.LOGIN);
@@ -21,6 +31,17 @@ function* watchLogin() {
   }
 }
 
-export default function* root() {
-  yield fork(watchLogin);
+function* watchFetchUsers() {
+  while (true) {
+    const actions = yield take(user.FETCH_USERLIST);
+    yield call(fetchUsers, actions.payload);
+  }
 }
+
+const sagas = [
+  watchLogin,
+  watchFetchUsers
+]
+
+export default sagas;
+

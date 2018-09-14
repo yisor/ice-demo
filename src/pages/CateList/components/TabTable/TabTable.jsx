@@ -9,42 +9,7 @@ const MOCK_DATA = [
     name: '前端',
     shortName: 'frontEnd',
     articleNum: '2',
-  },
-  {
-    name: '后端',
-    shortName: 'backEnd',
-    articleNum: '3',
-  },
-  {
-    name: '开发工具',
-    shortName: 'tool',
-    articleNum: '10',
-  },
-  {
-    name: '数据库',
-    shortName: 'database',
-    articleNum: '26',
-  },
-  {
-    name: '系统',
-    shortName: 'system',
-    articleNum: '18',
-  },
-  {
-    name: '服务器',
-    shortName: 'server',
-    articleNum: '6',
-  },
-  {
-    name: '框架',
-    shortName: 'framework',
-    articleNum: '39',
-  },
-  {
-    name: '其他',
-    shortName: 'other',
-    articleNum: '52',
-  },
+  }
 ];
 
 export default class TabTable extends Component {
@@ -121,7 +86,7 @@ export default class TabTable extends Component {
       <div className="tab-table">
         <IceContainer>
           <CustomTable
-            dataSource={this.state.dataSource}
+            dataSource={this.props.dataSource}
             columns={this.columns}
             hasBorder={false}
           />

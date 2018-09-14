@@ -1,20 +1,22 @@
 
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CustomBreadcrumb from '../../components/CustomBreadcrumb';
 import TabTable from './components/TabTable';
+import { fetchUserList } from '@/redux/actions/user';
 
 import './UserList.scss';
 
-export default class UserList extends Component {
+class UserList extends Component {
   static displayName = 'UserList';
 
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.props.fetchUserList();
   }
 
   render() {
+    const { userList } = this.props;
     const breadcrumb = [
       { text: '用户管理', link: '' },
       { text: '用户列表', link: '#/user/list' },
@@ -22,8 +24,20 @@ export default class UserList extends Component {
     return (
       <div className="user-list-page">
         <CustomBreadcrumb dataSource={breadcrumb} />
-        <TabTable />
+        <TabTable dataSource={userList} />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchUserList: () => {
+    dispatch(fetchUserList());
+  },
+});
+
+const mapStateToProps = (state) => ({
+  userList: state.user.userList,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);

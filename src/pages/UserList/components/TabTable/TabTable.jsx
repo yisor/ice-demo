@@ -94,19 +94,6 @@ export default class TabTable extends Component {
     ];
   }
 
-  componentDidMount() {
-    axios
-      .get('/mock/user-list.json')
-      .then((response) => {
-        this.setState({
-          dataSource: response.data.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   getFormValues = (dataIndex, values) => {
     const { dataSource, tabKey } = this.state;
     dataSource[tabKey][dataIndex] = values;
@@ -130,7 +117,7 @@ export default class TabTable extends Component {
   };
 
   render() {
-    const { dataSource } = this.state;
+    const { dataSource } = this.props;
     return (
       <div className="tab-table">
         <IceContainer style={{ padding: '0 20px 20px' }}>
