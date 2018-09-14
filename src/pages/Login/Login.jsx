@@ -11,23 +11,23 @@ import './Login.scss';
 class Login extends Component {
 
   render() {
-    const { handleLogin } = this.props;
+    const { userLogin } = this.props;
     return (
       <div className="login-page">
-        <div onClick={handleLogin}>测试</div>
+        <UserLogin handleLogin={userLogin} />
       </div>
     );
   }
 }
 
-// const mapDispatchToProps = {
-//   userLogin,
-// };
+const mapDispatchToProps = {
+  userLogin,
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  handleLogin: () => {
-    dispatch(push('/hello'));
-  },
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   handleLogin: (act) => {
+//     dispatch(userLogin(act));
+//   },
+// });
 
 export default connect(() => ({}), mapDispatchToProps)(Login);
