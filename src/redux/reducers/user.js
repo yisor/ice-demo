@@ -1,9 +1,17 @@
-import * as Types from '../actions/user'
+import * as Types from '../actions/user';
+import createReducer from '@/utils/createReducer';
 
 const initialState = {
   authInfo: null,
   userList: [],
 }
+
+const usersReducer = ([], {
+  [Types.LOGIN]: (state, payload) => state + payload,
+  [Types.LOGIN_SUCCESS]: (state, payload) => state + payload,
+  [Types.FETCH_USERLIST]: (state, payload) => state + payload,
+  [Types.FETCH_USERLIST_SUCCESS]: (state, payload) => state + payload,
+});
 
 const reducer = (state = initialState, action) => {
   const payload = action.payload;

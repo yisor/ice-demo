@@ -2,13 +2,15 @@ import { call, put, take, fork } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import request from "@/utils/request";
 import { user } from '../actions';
+import { setAuthority } from '@/utils/authority';
 
 function* login(act) {
   try {
     const response = yield call(request, '/api/login', act, 'post');
-    yield put(user.loginSuccess(act));
-    yield put(push('/'));
     console.log('登录', response);
+    yield put(user.loginSuccess(response.data));
+    yield call(setAuthority, response.data);
+    yield put(push('/'));
   } catch (err) {
     console.log('登录失败', err.errorMsg)
   }

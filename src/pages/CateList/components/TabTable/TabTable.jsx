@@ -66,6 +66,8 @@ export default class TabTable extends Component {
   }
 
   getFormValues = (dataIndex, values) => {
+    console.log('修改后值：', JSON.stringify(values));
+    const { editItem } = this.props;
     const { dataSource } = this.state;
     dataSource[dataIndex] = values;
     this.setState({
@@ -74,6 +76,7 @@ export default class TabTable extends Component {
   };
 
   handleRemove = (value, index) => {
+    const { deleteItem } = this.props;
     const { dataSource } = this.state;
     dataSource.splice(index, 1);
     this.setState({

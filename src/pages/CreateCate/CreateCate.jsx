@@ -1,18 +1,15 @@
 
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CustomBreadcrumb from '../../components/CustomBreadcrumb';
 import SimpleFluencyForm from './components/SimpleFluencyForm';
+import { createCate } from '@/redux/actions/category';
 
 import './CreateCate.scss';
 
-export default class CreateCate extends Component {
+class CreateCate extends Component {
   static displayName = 'CreateCate';
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     const breadcrumb = [
@@ -27,3 +24,15 @@ export default class CreateCate extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  createCate: (cate) => {
+    dispatch(createCate(cate));
+  },
+});
+
+const mapStateToProps = (state) => ({
+  cateList: state.category.cateList,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCate);

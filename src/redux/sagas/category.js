@@ -21,6 +21,24 @@ function* createCate(category) {
   }
 }
 
+function* deleteCate(category) {
+  try {
+    const response = yield call(request, '/api/category', category, 'post');
+    console.log('删除分类', response);
+  } catch (err) {
+    console.log('删除失败', err.errorMsg)
+  }
+}
+
+function* editCate(category) {
+  try {
+    const response = yield call(request, '/api/category', category, 'post');
+    console.log('编辑分类', response);
+  } catch (err) {
+    console.log('编辑失败', err.errorMsg)
+  }
+}
+
 function* watchFetchCates() {
   while (true) {
     const actions = yield take(category.FETCH_CATELIST);
@@ -35,9 +53,26 @@ function* watchCreateCate() {
   }
 }
 
+function* watchDeleteCate() {
+  while (true) {
+    const actions = yield take(category.CREATE_CATE);
+    yield call(deleteCate, actions.payload);
+  }
+}
+
+
+function* watchEditCate() {
+  while (true) {
+    const actions = yield take(category.CREATE_CATE);
+    yield call(editCate, actions.payload);
+  }
+}
+
 const sagas = [
   watchFetchCates,
-  watchCreateCate
+  watchCreateCate,
+  watchDeleteCate,
+  watchEditCate
 ]
 
 export default sagas;

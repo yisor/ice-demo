@@ -2,10 +2,9 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
 import CustomBreadcrumb from '../../components/CustomBreadcrumb';
 import TabTable from './components/TabTable';
-import { fetchCateList } from '@/redux/actions/category';
+import { fetchCateList, deleteCate, editCate } from '@/redux/actions/category';
 
 import './CateList.scss';
 
@@ -18,7 +17,7 @@ class CateList extends Component {
 
 
   render() {
-    const { cateList } = this.props;
+    const { cateList, deleteCate, editCate } = this.props;
     const breadcrumb = [
       { text: '分类管理', link: '' },
       { text: '分类列表', link: '#/cate/list' },
@@ -26,7 +25,11 @@ class CateList extends Component {
     return (
       <div className="cate-list-page">
         <CustomBreadcrumb dataSource={breadcrumb} />
-        <TabTable dataSource={cateList} />
+        <TabTable
+          dataSource={cateList}
+          deleteItem={deleteCate}
+          editItem={editCate}
+        />
       </div>
     );
   }
@@ -35,6 +38,12 @@ class CateList extends Component {
 const mapDispatchToProps = (dispatch) => ({
   fetchCateList: () => {
     dispatch(fetchCateList());
+  },
+  deleteCate: (cate) => {
+    dispatch(deleteCate(cate));
+  },
+  editCate: (cate) => {
+    dispatch(editCate(cate));
   },
 });
 
