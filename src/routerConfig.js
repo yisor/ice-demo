@@ -17,18 +17,35 @@ import EditPassword from './pages/EditPassword';
 import BasicSetting from './pages/BasicSetting';
 import NavigationSetting from './pages/NavigationSetting';
 import NotFound from './pages/NotFound';
+import CreateInvestor from './pages/CreateInvestor';
+
+import InvestorList from './pages/InvestorList';
+import ProjectList from './pages/ProjectList';
+import CreateProject from './pages/CreateProject';
 import Login from './pages/Login';
 
 const routerConfig = [
   {
-    path: '/login',
-    layout: BlankLayout,
-    component: Login,
-  },
-  {
     path: '/',
     layout: HeaderAsideFooterResponsiveLayout,
     component: Dashboard,
+  },
+  {
+    path: '/cate',
+    layout: HeaderAsideFooterResponsiveLayout,
+    component: CateList,
+    children: [
+      {
+        path: 'list',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: CateList,
+      },
+      {
+        path: 'create',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: CreateCate,
+      },
+    ],
   },
   {
     path: '/setting',
@@ -87,21 +104,9 @@ const routerConfig = [
     ],
   },
   {
-    path: '/cate',
-    layout: HeaderAsideFooterResponsiveLayout,
-    component: CateList,
-    children: [
-      {
-        path: 'list',
-        layout: HeaderAsideFooterResponsiveLayout,
-        component: CateList,
-      },
-      {
-        path: 'create',
-        layout: HeaderAsideFooterResponsiveLayout,
-        component: CreateCate,
-      },
-    ],
+    path: '/login',
+    layout: BlankLayout,
+    component: Login,
   },
   {
     path: '/post',
@@ -121,7 +126,41 @@ const routerConfig = [
     ],
   },
   {
-    path: '/hello',
+    path: '/investor',
+    layout: HeaderAsideFooterResponsiveLayout,
+    component: PostList,
+    children: [
+      {
+        path: 'list',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: InvestorList,
+      },
+      {
+        path: 'create',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: CreateInvestor,
+      },
+    ],
+  },
+  {
+    path: '/project',
+    layout: HeaderAsideFooterResponsiveLayout,
+    component: PostList,
+    children: [
+      {
+        path: 'list',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: ProjectList,
+      },
+      {
+        path: 'create',
+        layout: HeaderAsideFooterResponsiveLayout,
+        component: CreateProject,
+      },
+    ],
+  },
+  {
+    path: '*',
     layout: HeaderAsideFooterResponsiveLayout,
     component: NotFound,
   },

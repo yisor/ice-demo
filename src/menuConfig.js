@@ -58,6 +58,24 @@ const asideMenuConfig = [
     ],
   },
   {
+    name: '投资人管理',
+    path: '/investor',
+    icon: 'fans',
+    children: [
+      { name: '投资人列表', path: '/investor/list' },
+      { name: '投资人录入', path: '/investor/create' },
+    ],
+  },
+  {
+    name: '项目管理',
+    path: '/project',
+    icon: 'ul-list',
+    children: [
+      { name: '项目列表', path: '/project/list' },
+      { name: '项目录入', path: '/project/create' }
+    ],
+  },
+  {
     name: '用户管理',
     path: '/user',
     icon: 'yonghu',
