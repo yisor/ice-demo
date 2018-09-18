@@ -38,12 +38,6 @@ export default class TabTable extends Component {
         width: 150,
       },
       {
-        title: '文章数',
-        width: 150,
-        dataIndex: 'articleNum',
-        key: 'articleNum',
-      },
-      {
         title: '操作',
         key: 'action',
         width: 150,

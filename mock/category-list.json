@@ -4,19 +4,20 @@
   "successful": true,
   "data": [
     {
-      "name": "前端",
-      "shortName": "frontEnd",
-      "articleNum": "2"
+      "name": "资讯",
+      "shortName": "info"
     },
     {
-      "name": "后端",
-      "shortName": "backEnd",
-      "articleNum": "3"
+      "name": "快讯",
+      "shortName": "flash"
+    },
+    {
+      "name": "公告",
+      "shortName": "notice"
     },
     {
       "name": "其他",
-      "shortName": "other",
-      "articleNum": "52"
+      "shortName": "other"
     }
   ]
 }

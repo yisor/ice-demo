@@ -35,6 +35,7 @@ export default class SimpleFluencyForm extends Component {
   };
 
   handleSubmit = () => {
+    const { onSubmit } = this.props;
     this.form.validateAll((errors, values) => {
       if (errors) {
         console.log('errors', errors);

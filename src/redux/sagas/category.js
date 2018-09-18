@@ -55,7 +55,7 @@ function* watchCreateCate() {
 
 function* watchDeleteCate() {
   while (true) {
-    const actions = yield take(category.CREATE_CATE);
+    const actions = yield take(category.DELETE_CATE);
     yield call(deleteCate, actions.payload);
   }
 }
@@ -63,7 +63,7 @@ function* watchDeleteCate() {
 
 function* watchEditCate() {
   while (true) {
-    const actions = yield take(category.CREATE_CATE);
+    const actions = yield take(category.EDIT_CATE);
     yield call(editCate, actions.payload);
   }
 }

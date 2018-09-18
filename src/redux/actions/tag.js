@@ -1,6 +1,7 @@
 import createAction from '@/utils/createAction';
 
 export const FETCH_TAGLIST = 'FETCH_TAGLIST';
+export const FETCH_TAGLIST_SUCCESS = 'FETCH_TAGLIST_SUCCESS';
 export const CREATE_TAG = 'CREATE_TAG';
 export const DELETE_TAG = 'DELETE_TAG';
 export const EDIT_TAG = 'EDIT_TAG';
@@ -10,6 +11,7 @@ export const EDIT_TAG = 'EDIT_TAG';
  * @param {*} payload 
  */
 export const fetchTagList = createAction(FETCH_TAGLIST)
+export const fetchTagListSuccess = createAction(FETCH_TAGLIST_SUCCESS)
 /**
  * 创建标签
  * @param {*} payload 

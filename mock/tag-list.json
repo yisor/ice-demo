@@ -1,0 +1,19 @@
+{
+  "code": "0000",
+  "message": "suc",
+  "successful": true,
+  "data": [
+    {
+      "name": "比特币",
+      "shortName": "BTC"
+    },
+    {
+      "name": "区块链",
+      "shortName": "Blockchain"
+    },
+    {
+      "name": "以太坊",
+      "shortName": "ETH"
+    }
+  ]
+}

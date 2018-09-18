@@ -83,12 +83,6 @@ export default class TabTable extends Component {
         width: 200,
       },
       {
-        title: '文章数',
-        dataIndex: 'articleNum',
-        key: 'articleNum',
-        width: 200,
-      },
-      {
         title: '操作',
         key: 'action',
         width: 150,
@@ -111,6 +105,7 @@ export default class TabTable extends Component {
   }
 
   getFormValues = (dataIndex, values) => {
+    const { editItem } = this.props;
     const { dataSource } = this.state;
     dataSource[dataIndex] = values;
     this.setState({
@@ -119,6 +114,7 @@ export default class TabTable extends Component {
   };
 
   handleRemove = (value, index) => {
+    const { deleteItem } = this.props;
     const { dataSource } = this.state;
     dataSource.splice(index, 1);
     this.setState({
@@ -131,7 +127,7 @@ export default class TabTable extends Component {
       <div className="tab-table">
         <IceContainer>
           <CustomTable
-            dataSource={this.state.dataSource}
+            dataSource={this.props.dataSource}
             columns={this.columns}
             hasBorder={false}
           />

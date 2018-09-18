@@ -1,18 +1,15 @@
 
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CustomBreadcrumb from '../../components/CustomBreadcrumb';
 import SimpleFluencyForm from './components/SimpleFluencyForm';
+import { createTag } from '@/redux/actions/tag';
 
 import './CreateTag.scss';
 
-export default class CreateTag extends Component {
+class CreateTag extends Component {
   static displayName = 'CreateTag';
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     const breadcrumb = [
@@ -22,8 +19,20 @@ export default class CreateTag extends Component {
     return (
       <div className="create-tag-page">
         <CustomBreadcrumb dataSource={breadcrumb} />
-        <SimpleFluencyForm />
+        <SimpleFluencyForm onSubmit={this.props.createTag} />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  createTag: (tag) => {
+    dispatch(createTag(tag));
+  }
+});
+
+const mapStateToProps = (state) => ({
+  tagList: state.tag.tagList
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTag);

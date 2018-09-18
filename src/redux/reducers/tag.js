@@ -1,13 +1,13 @@
 import * as Types from '../actions/tag'
 
 const initialState = {
-  tagList: null,
+  tagList: [],
 }
 
 const reducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
-    case Types.FETCH_TAGLIST:
+    case Types.FETCH_TAGLIST_SUCCESS:
       return {
         ...state,
         tagList: payload,

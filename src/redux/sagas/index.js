@@ -1,10 +1,12 @@
 import { fork } from 'redux-saga/effects';
 import userSaga from './user';
 import cateSaga from './category';
+import tagSaga from './tag';
 
 const sagas = [
   ...userSaga,
-  ...cateSaga
+  ...cateSaga,
+  ...tagSaga,
 ]
 
 export default function* rootSaga() {
