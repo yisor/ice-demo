@@ -1,6 +1,7 @@
 const users = require('./user-list.json');
 const cates = require('./category-list.json');
 const tags = require('./tag-list.json');
+const posts = require('./post-list.json');
 
 module.exports = {
   'GET /api/profile': {
@@ -60,4 +61,5 @@ module.exports = {
   'GET /api/user/list': users,
   'GET /api/category/list': cates,
   'GET /api/tag/list': tags,
+  'GET /api/post/list': posts,
 };

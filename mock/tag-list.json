@@ -5,15 +5,18 @@
   "data": [
     {
       "name": "比特币",
-      "shortName": "BTC"
+      "type": 0,
+      "classType": 0
     },
     {
       "name": "区块链",
-      "shortName": "Blockchain"
+      "type": 1,
+      "classType": 1
     },
     {
       "name": "以太坊",
-      "shortName": "ETH"
+      "type": 2,
+      "classType": 2
     }
   ]
 }

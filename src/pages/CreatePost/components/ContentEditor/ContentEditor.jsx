@@ -41,7 +41,7 @@ export default class ContentEditor extends Component {
 
   handleSubmit = () => {
     this.postForm.validateAll((errors, values) => {
-      console.log('errors', errors, 'values', values);
+      console.log('errors', errors, 'values', JSON.stringify(values));
       if (errors) {
         return false;
       }

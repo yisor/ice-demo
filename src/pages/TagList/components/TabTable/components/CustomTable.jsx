@@ -14,11 +14,6 @@ export default class CustomTable extends Component {
     dataSource: [],
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   renderColumns = () => {
     const { columns } = this.props;
     return columns.map((item) => {

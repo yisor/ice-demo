@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog, Button, Form, Input, Field } from '@icedesign/base';
+import { Dialog, Button, Form, Input, Field, Select } from '@icedesign/base';
 
 const FormItem = Form.Item;
 
@@ -85,20 +85,32 @@ export default class EditDialog extends Component {
               />
             </FormItem>
 
-            <FormItem label="缩写名：" {...formItemLayout}>
-              <Input
-                {...init('shortName', {
+            <FormItem label="标签类型：" {...formItemLayout}>
+              <Select
+                {...init('type', {
                   rules: [{ required: true, message: '必填选项' }],
                 })}
+                style={{ width: '100%', }}
+                dataSource={[
+                  { label: '系统', value: 0 },
+                  { label: '系统自定义', value: 1 },
+                  { label: '用户自定义', value: 2 },
+                ]}
               />
+
             </FormItem>
 
-            <FormItem label="文章数：" {...formItemLayout}>
-              <Input
-                disabled
-                {...init('articleNum', {
+            <FormItem label="标识类型：" {...formItemLayout}>
+              <Select
+                {...init('classType', {
                   rules: [{ required: true, message: '必填选项' }],
                 })}
+                style={{ width: '100%', }}
+                dataSource={[
+                  { label: '项目', value: 0 },
+                  { label: '投资人', value: 1 },
+                  { label: '投资机构', value: 2 },
+                ]}
               />
             </FormItem>
           </Form>

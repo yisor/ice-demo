@@ -9,11 +9,6 @@ import './CreatePost.scss';
 export default class CreatePost extends Component {
   static displayName = 'CreatePost';
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const breadcrumb = [
       { text: '文章管理', link: '' },

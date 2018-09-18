@@ -32,7 +32,7 @@ export default class CustomTable extends Component {
     for (let i = 0; i < 10; i++) {
       result.push({
         id: i + 1,
-        name: `李晓红${i + 1}`,
+        name: `李晓明${i + 1}`,
         university: '浙江大学',
         college: '计算机',
         class: i + 1,

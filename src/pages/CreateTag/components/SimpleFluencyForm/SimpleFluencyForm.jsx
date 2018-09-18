@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import { Grid, Input, Button, Feedback } from '@icedesign/base';
+import { Grid, Input, Button, Feedback, Select } from '@icedesign/base';
 import {
   FormBinderWrapper,
   FormBinder,
@@ -23,7 +23,7 @@ export default class SimpleFluencyForm extends Component {
     this.state = {
       formValue: {
         name: '',
-        shortName: '',
+        type: '',
       },
     };
   }
@@ -75,14 +75,43 @@ export default class SimpleFluencyForm extends Component {
               </Row>
               <Row style={styles.formRow}>
                 <Col xxs="6" s="4" l="3" style={styles.formLabel}>
-                  <span>缩略名称：</span>
+                  <span>标签类型：</span>
                 </Col>
                 <Col xxs="16" s="10" l="6">
-                  <FormBinder required message="必填项">
-                    <Input name="shortName" />
+                  <FormBinder name="type" required message="必填项">
+                    <Select
+                      style={{ width: '100%', }}
+                      placeholder="请选择标签类型"
+                      dataSource={[
+                        { label: '系统', value: 0 },
+                        { label: '系统自定义', value: 1 },
+                        { label: '用户自定义', value: 2 },
+                      ]}
+                    />
                   </FormBinder>
                   <div style={styles.formErrorWrapper}>
-                    <FormError name="shortName" />
+                    <FormError name="type" />
+                  </div>
+                </Col>
+              </Row>
+              <Row style={styles.formRow}>
+                <Col xxs="6" s="4" l="3" style={styles.formLabel}>
+                  <span>标识类型：</span>
+                </Col>
+                <Col xxs="16" s="10" l="6">
+                  <FormBinder name="classType" required message="必填项">
+                    <Select
+                      style={{ width: '100%', }}
+                      placeholder="请选择标识类型"
+                      dataSource={[
+                        { label: '项目', value: 0 },
+                        { label: '投资人', value: 1 },
+                        { label: '投资机构', value: 2 },
+                      ]}
+                    />
+                  </FormBinder>
+                  <div style={styles.formErrorWrapper}>
+                    <FormError name="classType" />
                   </div>
                 </Col>
               </Row>

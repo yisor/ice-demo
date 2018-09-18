@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CustomBreadcrumb from '../../components/CustomBreadcrumb';
 import TabTable from './components/TabTable';
+import { fetchPostList, deletePost, editPost } from '@/redux/actions/post';
 
 import './PostList.scss';
 
-export default class PostList extends Component {
+class PostList extends Component {
   static displayName = 'PostList';
 
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.props.fetchPostList();
   }
 
   render() {
@@ -20,8 +21,26 @@ export default class PostList extends Component {
     return (
       <div className="post-list-page">
         <CustomBreadcrumb dataSource={breadcrumb} />
-        <TabTable />
+        <TabTable dataSource={this.props.postList} />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchPostList: () => {
+    dispatch(fetchPostList());
+  },
+  deletePost: (post) => {
+    dispatch(deletePost(post));
+  },
+  editPost: (post) => {
+    dispatch(editPost(post));
+  },
+});
+
+const mapStateToProps = (state) => ({
+  postList: state.post.postList,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostList);

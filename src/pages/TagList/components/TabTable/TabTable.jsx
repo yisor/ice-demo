@@ -4,58 +4,8 @@ import CustomTable from './components/CustomTable';
 import EditDialog from './components/EditDialog';
 import DeleteBalloon from './components/DeleteBalloon';
 
-const MOCK_DATA = [
-  {
-    name: 'React Native',
-    shortName: 'RN',
-    articleNum: '2',
-  },
-  {
-    name: 'JavaScript',
-    shortName: 'JS',
-    articleNum: '3',
-  },
-  {
-    name: 'HTML5',
-    shortName: 'H5',
-    articleNum: '10',
-  },
-  {
-    name: 'Ruby on rails',
-    shortName: 'ROR',
-    articleNum: '26',
-  },
-  {
-    name: 'Android',
-    shortName: 'Android',
-    articleNum: '18',
-  },
-  {
-    name: 'iOS',
-    shortName: 'iOS',
-    articleNum: '6',
-  },
-  {
-    name: 'Objective-C',
-    shortName: 'Obj-C',
-    articleNum: '39',
-  },
-  {
-    name: 'CSS',
-    shortName: 'CSS',
-    articleNum: '52',
-  },
-  {
-    name: 'Node.js',
-    shortName: 'Node.js',
-    articleNum: '52',
-  },
-  {
-    name: 'CoffeeScript',
-    shortName: 'CoffeeScript',
-    articleNum: '52',
-  },
-];
+const types = ['系统', '系统自定义', '用户自定义'];
+const classTypes = ['项目', '投资人', '投资机构'];
 
 export default class TabTable extends Component {
   static displayName = 'TabTable';
@@ -67,7 +17,7 @@ export default class TabTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: MOCK_DATA,
+      dataSource: props.dataSource,
     };
     this.columns = [
       {
@@ -77,10 +27,26 @@ export default class TabTable extends Component {
         width: 200,
       },
       {
-        title: '缩写名',
-        dataIndex: 'shortName',
-        key: 'shortName',
-        width: 200,
+        title: '标签类型',
+        dataIndex: 'type',
+        key: 'type',
+        width: 150,
+        render: (value, index, item) => {
+          return (
+            <a>{types[item.classType]}</a>
+          );
+        }
+      },
+      {
+        title: '标识类型',
+        dataIndex: 'classType',
+        key: 'classType',
+        width: 150,
+        render: (value, index, item) => {
+          return (
+            <a>{classTypes[item.classType]}</a>
+          );
+        }
       },
       {
         title: '操作',
